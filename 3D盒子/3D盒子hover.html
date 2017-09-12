@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+     <style>
+          /*版本：one；/  正负不变 所有子div的rotate()都可以改为90deg，写450deg只是为了增加效果，
+          first-child()、lest-child()的rotate()也可以不写（删除）  效果显示为版本3*/
+          /*body {
+               perspective: 1400px;
+          }
+
+          .Box {
+               width: 200px;
+               height: 200px;
+               margin: 200px auto;
+               position: relative;
+               animation: rotateBox 3s linear infinite;
+               transform-style: preserve-3d;
+          }
+
+          @keyframes rotateBox {
+               from {}
+               to {
+                    transform: rotateY(360deg) rotate(360deg);
+               }
+          }
+
+          .box {
+               width: 1%;
+               height: 1%;
+               position: absolute;
+               top: 100px;
+               left: 100px;
+               opacity: 0.4;
+               transition: all 2s;
+          }
+
+          .Box:hover .box {
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+          }
+
+          .Box:hover .box:first-child {
+               background: linear-gradient(to top, red, orange)no-repeat;
+               box-shadow: inset 0 0 30px 50px red;
+               transform: rotateY(360deg) translateZ(-100px)
+          }
+
+          .Box:hover .box:nth-child(2) {
+               background: linear-gradient(to top, orange, yellow)no-repeat;
+               transform: rotateX(450deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px orange;
+          }
+
+          .Box:hover .box:nth-child(3) {
+               background: linear-gradient(to top, yellow, green)no-repeat;
+               transform: rotateY(450deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px yellow;
+          }
+
+          .Box:hover .box:nth-child(4) {
+               background: linear-gradient(to top, green, blue)no-repeat;
+               transform: rotateX(-450deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px green;
+          }
+
+          .Box:hover .box:nth-child(5) {
+               background: linear-gradient(to top, blue, aqua)no-repeat;
+               transform: rotateY(-450deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px blue;
+          }
+
+          .Box:hover .box:nth-child(6) {
+               background: linear-gradient(to top, aqua, purple)no-repeat;
+               transform: rotateY(360deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px aqua;
+          }*/
+          /*
+          */
+          /*
+          */
+          /*版本：tow；*/
+
+          /* body {
+               perspective: 1400px;
+          }
+
+          .Box {
+               width: 200px;
+               height: 200px;
+               margin: 200px auto;
+               position: relative;
+               animation: rotateBox 3s linear infinite;
+               transform-style: preserve-3d;
+          }
+
+          @keyframes rotateBox {
+               from {}
+               to {
+                    transform: rotateY(360deg) rotate(360deg);
+               }
+          }
+
+          .box {
+               width: 10%;
+               height: 10%;
+               position: absolute;
+               top: 100px;
+               left: 100px;
+               opacity: 0.4;
+               transition: all 2s;
+          }
+
+          .Box:hover .box {
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+          }
+
+          .box:first-child {
+               background: linear-gradient(to top, red, orange)no-repeat;
+               box-shadow: inset 0 0 30px 50px red;
+               transform: translateZ(-100px)
+          }
+
+          .box:nth-child(2) {
+               background: linear-gradient(to top, orange, yellow)no-repeat;
+               transform: rotateX(90deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px orange;
+          }
+
+          .box:nth-child(3) {
+               background: linear-gradient(to top, yellow, green)no-repeat;
+               transform: rotateY(90deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px yellow;
+          }
+
+          .box:nth-child(4) {
+               background: linear-gradient(to top, green, blue)no-repeat;
+               transform: rotateX(-90deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px green;
+          }
+
+          .box:nth-child(5) {
+               background: linear-gradient(to top, blue, aqua)no-repeat;
+               transform: rotateY(-90deg) translateZ(100px);
+               box-shadow: inset 0 0 30px 50px blue;
+          }
+
+          .box:nth-child(6) {
+               background: linear-gradient(to top, aqua, purple)no-repeat;
+               transform: translateZ(100px);
+               box-shadow: inset 0 0 30px 50px aqua;
+          } */
+          /*
+          */
+          /*
+          */
+          /*版本：3 ；遗留问题：3D遮挡效果 （近景会挡住远景、被遮住的border会形成空白）、目前未设置背景透明却没出现3D遮挡；
+          可以忽略  丑*/
+          body {
+               perspective: 1400px;
+          }
+
+          .Box {
+               width: 200px;
+               height: 200px;
+               margin: 200px auto;
+               position: relative;
+               animation: rotateBox 3s infinite linear;
+               transform-style: preserve-3d;
+          }
+
+          @keyframes rotateBox {
+               from {}
+               to {
+                    transform: rotateY(360deg) rotateX(360deg);
+               }
+          }
+
+          .box {
+               width: 100%;
+               height: 100%;
+               border: 1px solid #000;
+               position: absolute;
+               transition: all 1s;
+          }
+
+          .Box:hover .box:nth-child(1) {
+               transform: translatez(100px);
+          }
+
+          .Box:hover .box:nth-child(2) {
+               transform: rotateX(90deg) translateZ(100px);
+          }
+
+          .Box:hover .box:nth-child(3) {
+               transform: rotateX(-90deg) translateZ(100px);
+          }
+
+          .Box:hover .box:nth-child(4) {
+               transform: rotateY(90deg) translateZ(100px);
+          }
+
+          .Box:hover .box:nth-child(5) {
+               transform: rotateY(-90deg) translateZ(100px);
+          }
+
+          .Box:hover .box:nth-child(6) {
+               transform: translatez(-100px);
+          }
+     </style>
+</head>
+
+<body>
+     <div class="Box">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+     </div>
+</body>
+
+</html>
