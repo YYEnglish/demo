@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        div{
+            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+        }
+    .main{
+        background-color: pink;
+        margin:200px auto;
+        position: relative;
+    }
+    .yi{
+        width: 50px;height: 50px;
+        background-color: orange;;position: absolute;
+        top:275px;  
+    }
+    .er{
+        width: 50px;height: 50px;
+        background-color: green;position: absolute;
+        top:81px;
+        left:81px;
+    }
+    .san{
+        width: 50px;height: 50px;
+        background-color: skyblue;;position: absolute;
+        left:275px;
+    }
+    .si{
+        width: 50px;height: 50px;
+        background-color: red;;position: absolute;
+        top:81px;
+        left:471px;
+    }
+    .xian{
+        width: 600px;
+        height:0;
+        position: absolute;
+        top:300px;
+        border:1px solid red;
+        transform: rotate(135deg);
+    }
+    .moves{animation: moves 4s infinite linear;}
+    @keyframes moves{45%{transform: translateX(550px);}100%{transform: translateX(0);}}
+    .moveq{animation: moveq 4s infinite linear;}
+    @keyframes moveq{45%{transform: translate(390px,390px);}100%{transform: translateX(0);}}
+    .movew{animation: movew 4s infinite linear;}
+    @keyframes movew{45%{transform: translateY(550px);}100%{transform: translateX(0);}}
+    .movee{animation: movee 4s infinite linear;}
+    @keyframes movee{45%{transform: translate(-390px,390px);}100%{transform: translateX(0);}}
+    </style>
+</head>
+<body>
+   <div class="main">
+        <div id="yi"class="yi moves"></div>
+        <div id="er"class="er"></div>
+        <div id="san"class="san"></div>
+        <div id="si"class="si"></div>
+        <!-- <div id="wu"class="xian"> -->
+        <!-- </div> -->
+   </div>
+   <script>
+       function id (id){
+           return document.getElementById(id);
+       }
+       var yi=id('yi');
+       var er=id('er');
+       var san=id('san');
+       var si=id('si');
+       setTimeout(function() {
+           er.className=er.className.concat(' moveq');
+       }, 500);
+       setTimeout(function() {
+           san.className=san.className.concat(' movew');
+       }, 1000);
+       setTimeout(function() {
+           si.className=si.className.concat(' movee');
+       }, 1500);
+
+   </script>
+</body>
+</html>
